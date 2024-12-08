@@ -1,0 +1,129 @@
+1、.bash文件	以 	#!/bin/bash	开头
+2、执行方式：
+	A.	./xxx.sh
+	B.	sh  xxx.sh
+3、变量：
+	定义：		<变量名>=<值>
+	撤销(销毁)： 	unset <变量名>
+	声明静态变量：readonly <变量名>		不可unset
+	多行注释：	:<<!		!
+
+例：	A=100
+	echo A=$A
+	unset A
+	readonly B=20
+	echo $B
+
+4、设置环境变量：
+	在	/etc/profile	文件中添加
+	A.export <变量名>=值
+	B.source /etc/profile	刷新配置文件
+	C.运行
+
+5、位置参数变量：
+	A. $n  : n为number 表示接收参数，10以上需要使用 ${10}
+	B. $*   : 表示命令行所有参数，看作一个整体
+	C. $@ :也表示所有参数，但分开
+	D. $#  :命令行中所有参数个数
+
+	eg. 	
+	#!/bin/bash
+	echo "A=$0 B=$1 C=$2"
+	echo "所有参数$*"
+	echo "$@"
+	echo "参数个数$#"
+
+6、预定义变量
+	$$	:	获取当前进程号PID
+	$!	:	后台运行的最后一个进程的PID
+	$?	:	最后一次执行的命令返回状态；若为0，则正确执行，若非0，反之
+7、在脚本中运行另外一个脚本：	需要加上&
+	/path/to/script.sh	&
+8、运算符：
+	A.$(()) 	$[] 	expr m + n  (必须带空格)		使用expr输出时，需要用``引用
+	B.expr 中	\*(乘)  /(除)  %(取余) 
+	
+	eg.
+	#!/bin/bash
+	#案例1：计算（2+3）X4的值
+	RES1=$(((2+3)*4))
+	echo "res1=$RES1"
+	RES2=$[(2+3)*4]
+	echo "res2=$RES2"
+	TEMP=`expr 2 + 3`
+	RES4=`expr $TEMP \* 4` 
+	echo "temp=$TEMP"
+	echo "res4=$RES4" 
+
+	#案例2：请求出命令行的两个参数[整数]的和 20 50
+	SUM=$[$1+$2]
+	echo "sum=$SUM"
+
+9、条件判断  	[  ]内必须有空格；[  ]内有内容则为true(0)，无内容则为false(非零)
+	if [  ]	
+	then 
+		#do something
+	fi
+10、字符串比较：=
+	两个整数的比较
+	-lt 小于		-le 小于等于 		-eq 等于		-gt 大于		-ge 大于等于			-ne 不等于	-r有读的权限		-w 有写的权限	-x有执行的权限						-f文件存在并且是一个常规的文件	-e文件存在	-d 文件存在并是一个目录
+
+	例：
+	if [ -f /etc/xxx.txt ]		#是否存在
+	then 
+		echo "exist"
+	elif [ xxxx ]
+	then
+		#xxx
+	fi
+	if [ 666 ]
+	then 
+		echo "666"
+	fi
+
+11、case :	具体格式
+	case $<变量名> in
+	"value 1")
+	#coding
+	;;
+	"value 2")
+	#coding
+	;;
+	*)
+	#类似defalut
+	#coding 
+	esac
+
+12、for循环
+A.
+	for <value> in <v1> <v2>
+	do
+		#coding
+	done
+	
+B.	
+	for(( i=1;i<$1;i++ ))
+	do 
+		#coding
+	done
+
+13、while循环
+	while [ 判断式 ]			#均有空格
+	do
+		#coding
+	done
+
+14、read	[选项] [参数]
+	选项：	-p 	指定读取时的提示符		-t	指定等待时间
+	参数：	变量：指定读取的变量名
+	
+	eg.
+	#!/bin/bash
+	read -t 5 -p "请输入" NUM1
+	echo "$NUM1"
+
+15、自定义函数
+	function <函数名> [(参数)]
+	{
+		#coding
+	}

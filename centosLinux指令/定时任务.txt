@@ -1,0 +1,55 @@
+1、crontab [选项]			
+	-e 编辑crontab定时任务		-l 查询(列举)crontab定时任务 
+	-r 删除当前用户所有crontab任务
+	service crond restart 重启任务调度                                                                                                                       
+2、时间规则 			日期和星期建议不要一起使用
+	* * * * *	分别对应(第几)   分钟 小时 日期(号) 月 星期几
+3、特殊符号
+	* 代表任何时间		
+	, 代表不连续时间，如0 6,8,12,16 * * * 表示每天6、8、12、16点0分执行
+	-表示范围，如0，2-14 * * 4 表示每周四的2-14时0分执行
+	*/n代表每隔多久执行，*/12 * * * * 表示每隔12分钟执行一	
+4、crontab应用实例：每隔1分钟，将当前日期和日历都追加到 /home/crontab.txt 文件中
+
+a、建立脚本文件 vim mycrontab.sh
+b、(可做可不做)建立要写入的文本文档 touch crontab.txt
+c、向mycrontab.sh中写入执行命令	
+	date >> /home/crontab.txt
+	cal >> /home/crontab.txt
+d、修改脚本文件的root执行权限	chmod u=rwx mycrontab.sh 
+e、设置crontab定时调度	crontab -e
+f、编辑crontab，每隔一分钟执行该脚本			
+	*/1 * * * * /home/mycrontab.sh
+
+5、at [选项] [时间]		Ctrl+D结束 at 命令的输入，输出两次
+	-m当指定的任务被完成后，将给用户发送邮件，即使没有标准输出
+	-I(大写i)atq的别名			-d atrm的别名
+	-v显示任务将被执行的时间		-V显示版本信息
+	-q<队列>使用指定的队列		
+	-f<文件>从指定文件读入任务而不是从标准输入读入
+	-t<时间参数>以时间参数的形式提交要运行的任务
+
+6、at 指定时间方法
+1)接受在当天的 hh:mm(小时:分钟)式的时间指定。假该时间已过去，那么就放在第二天执行。例如:04:00
+2)使用 midnight(深夜)，noon(中午)，teatime(饮茶时间，一般是下午4点)等比较模糊的词语来指定时间。
+3)采用 12 小时计时制，即在时间后面加上 AM(上午)PM(下午)来说明是上午还是下午。例如:12pm
+4)指定命令执行的具体日期，指定格式为month day(月 日)或mm/dd/yy(月/日/年)或dd.mm.yy(日.月.年)，指定的日期必须跟在指定时间的后面。例如:04:00 2021-03-1
+5)使用相对计时法。指定格式为:now+count time-units ，now 就是当前时间,time-units 是时间单位,这里能够是 minutes(分钟)、hours(小时)、days(天)、weeks(星期)。count 是时间的数量，几天，几小时。例如:now+5 minutes
+6)直接使用 today(今天)、tomorrow(明天)来指定完命令的时间。
+
+
+7、	实例1：两天后的下午5点执行 /bin/ls /home
+	at 5pm + 2 days (Enter)
+	/bin/ls /home (Ctrl+D * 2)
+	
+	实例2：明天 17 点钟，输出时间到 /root/date100.log
+	at 5pm tomorrow (Enter)
+	date > /root/date100.log (Ctrl+D * 2)
+
+	实例3：2 分钟后，输出时间到指定文件内比如 /root/date200.log
+	at now + 2 minutes (Enter)
+	date > /root/date200.log (Ctrl+D * 2)
+
+8、atq 	查看系统中没有执行的工作任务
+9、atrm [编号]		删除已经设置的任务
+		atrm 4 //表示将 job 队列，编号为4的job 删除

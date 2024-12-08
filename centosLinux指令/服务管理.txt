@@ -1,0 +1,32 @@
+1、服务管理
+	service [服务名] [start | stop | restart | reload | status]	开始、关闭、重启、查看状态reload:不间断服务重启，就像一张网页上面的刷新	restart:先stop 再 start,就像关闭浏览器再打开
+	使用service指令，关闭network		service network stop	
+	重启network					service network restart
+2、查看服务名
+	a.	service指令管理的服务在 /etc/init.d 中		ls -l /etc/init.d/	绿色的部分即为service
+	b.	输入setup 可以看到全部，其中有*的是系统启动时就自启动的服务
+3、运行级别	multi-user.target：运行级别三			graphical.target：运行级别五
+	查看当前运行级别	systemctl get-default
+	设置运行级别		systemctl set-default graphical.target
+					systemctl set-default multi-user.target
+4、chkconfig指令
+	chkconfig 		给服务的各个运行级别设置自启动/关闭
+	chkconfig --list 	列出chkconfig管理的服务
+5、chkconfig --level [运行级别] [服务名]	[on/off]	将某一服务在某运行级别下开启自启动或关闭
+	把network在3运行级别下关闭自启动	chkconfig --level 3 network off 
+重新设置后需要重启机器reboot
+6、systemctl管理指令	查看服务名 
+	在/usr/lib/systemd/system查看		ls -l /usr/lib/systemd/system	
+	systemctl [start | stop | restart | status]  服务名	    开始、关闭、重启、查看状态（临时生效）
+7、systemctl 设置服务自启动状态
+	systemctl list-unit-files [| grep xxx]	查看服务开机启动状态
+	systemctl is-enabled 服务名		查询某个服务是否自启动
+	systemctl enable 服务名			设置服务开机自启动(在3、5两个运行级别一起设置)
+	systemctl disable 服务名			关闭服务开机自启动(在3、5两个运行级别一起设置)
+	（永久生效）
+防火墙服务：firewalld.service
+8、firewall指令（防火墙）
+	查询端口是否开放	firewall-cmd --query-port=端口号/协议(均要写)
+	打开端口	firewall-cmd --permanent --add-port=端口号/协议(均要写)
+	关闭端口	firewall-cmd --permanent --remove-port=端口号/协议(均要写)
+	打开/关闭端口后，重新载入才生效	firewall-cmd --reload

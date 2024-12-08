@@ -1,0 +1,16 @@
+1、系统常用日志	/var/log目录下
+2、日志及说明：
+/var/log/boot.log	系统启动日志		/var/log/cron	定时任务相关日志
+/var/log/lastlog	记录所有用户最后一次登录的时间，该文件是二进制文件，查看需要用  lastlog	命令
+/var/log/mailog	邮件信息日志		
+/var/log/message	记录系统重要消息，如果系统出问题，首先检查此文件
+/var/log/secure	记录验证和授权信息，设计账户密码的程序都会被记录
+/var/log/ulmp		只会记录当前用户。此文件会随用户登陆注销变化，不能用Vi查看，需要用w who users等查看
+3、
+4、
+5、
+6、
+7、
+8、
+9、
+10、

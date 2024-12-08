@@ -1,0 +1,39 @@
+1、lsblk (-f)	查看所有设备挂载情况
+2、增加硬盘：
+	a.对新增硬盘分区，硬盘挂载在/dev/下		fdisk /dev/sdb
+	b.	输入m	获取帮助文档
+		输入n	添加新的分区
+		输入p/e	主分区/从属分区
+		输入1/n	确定需要1/n个分区
+		输入命令w/q		保存并生效/不保存退出
+	c.格式化磁盘(分配UUID)，ext4为分区类型，对sdb1格式化	
+			mkfs -t ext4 /dev/sdb1		
+	d.挂在到目录(可任意指定)/home/sdb1	,临时挂载,重启后失效
+	mount [设备名称] [挂载目录]
+		mount /dev/sdb1 /home/sdb1
+	e.卸载挂载 umount [设备名称] 或 [挂载目录]
+		如：umount /dev/sdb1 或 umount /home/sdb1
+	f.永久挂载 修改文件/etc/fstab	
+		 	vim /etc/fstab
+			UUID改为/dev/sdb1	
+/dev/sdb1           /home/sdb1              ext4    defaults        0 0   
+
+3、df -h 	查询磁盘使用情况
+4、du [选项] [目录地址]	查询指定目录磁盘占用情况
+	选项：	-h	带计量单位	 	-a 	含文件	
+			--max-depth=n 	查询子目录深度为n	
+			-c 	列出明细的同时，增加汇总值			
+			-s	指定目录占用大小汇总
+	常用： 	du -hac --max-depth=1 /opt/
+5、ls -l /opt/ | grep "^-" | wc -l	
+	统计/opt/目录下文件的个数 	以-开头
+	grep "^-"	： 过滤后保留以-(权限的最左侧,不含权限)开头的文件
+	wc -l		：统计个数并显示,若不加此指令则列出所有-开头的文件
+6、ls -l /opt/ | grep "^d" | wc -l	
+	统计/opt/目录下文件的个数 	以d开头
+7、ls -lR /opt/ | grep "^-" | wc -l	
+	统计/opt 文件夹下文件的个数，包括子文件夹里的
+	文件夹改为"^d"
+	-R	: 表示递归
+8、tree [目录地址]	以树状显示目录
+	需要yum install tree	安装tree

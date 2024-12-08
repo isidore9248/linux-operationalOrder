@@ -1,0 +1,22 @@
+1、gzip （文件名）			(只能用于)压缩文件  .gz
+     gunzip (文件名)			(只能用于)解压文件	
+
+2、zip [选项]XXX.zip 			压缩文件和目录的命令
+	-r	压缩文件夹时递归压缩	
+	zip -r new.zip /root/newdir/	将/root/newdir/下所有文							件和newdir共同压缩
+       unzip [选项]XXXzip		解压缩文件和目录的命令
+	-d    指定地址
+	unzip -d /opt/tmp /home/myhome.zip	将myhome.zip									解压到/opt/tmp下
+3、tar [选项]  xxx.tar.gz	
+	-c	产生.tar打包文件	-v	显示详细信息
+	-f 	指定压缩后的文件名	-z 	打包同时压缩
+	-x	解包.tar文件
+	
+	a.tar -zcvf pc.tar.gz /home/pig.txt /home/cat.txt
+	（将 /home/pig.txt 和 /home/cat.txt 压缩成 pc.tar.gz）
+	b.tar -zcvf myhome.tar.gz /home/
+	（将/home 的文件夹 压缩成 myhome.tar.gz）
+	c.tar -zxvf pc.tar.gz
+	（ pc.tar.gz 解压到当前目录）
+	d.tar -zxvf /home/myhome.tar.gz -C /opt/tmp2
+	（将 myhome.tar.gz解压到 /opt/tmp2目录下）

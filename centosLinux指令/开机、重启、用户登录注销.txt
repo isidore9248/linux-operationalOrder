@@ -1,0 +1,21 @@
+1、shutdown -h now		立该进行关机
+2、shutdown -h 1		一分钟后关机
+3、shutdown -r now		立该重启
+4、halt				关机
+5、reboot				重启
+6、sync				把内存的数据同步到磁盘	
+7、su - 用户名			切换用户
+8、logout				注销当前用户并退回，
+9、useradd  用户名		创建一个用户并生成在home根目录	
+     useradd -d  指定目录 用户名   	创建在指定目录下的新用户		
+10、passwd 用户名		给新用户设置密码(输入两次密码)
+11、pwd				显示当前用户所在目录
+12、userdel 用户名		删除用户(保留用户家目录)
+      userdel -r 用户名		删除用户家目录并删除用户
+13、id 用户名			查看用户信息
+14、who am i /whoami	查看当前用户信息
+15、groupadd 组名		创建一个组
+       groupdel 组名		删除一个组
+16、useradd -g 组名 用户名	将用户添加到组
+	使用时可以不创建组，直接调用此命令，会自动创建组
+17、usermod -g 组名 用户名	将用户更改到新组下

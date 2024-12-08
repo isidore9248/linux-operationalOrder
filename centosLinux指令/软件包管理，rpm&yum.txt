@@ -1,0 +1,19 @@
+1、查询指令 rpm [选项] | grep ...		查询已经安装的rpm列表
+2、rpm包名解读：firefox-60.2.2-1.el7.centos.x86_64
+	firefox -> 名称		60.2.2-1 -> 版本号		
+	el7.centos.x86_64  ->  操作系统，centos的64位操作系统
+	i686，i386 -> 32位操作系统		noarch -> 通用 
+3、其他查询指令
+	rpm -qa 			查询所有安装的rpm软件包
+	rpm -q [软件包名]	查询软件包是否安装		rpm -q firefox
+	rpm -qi [软件包名]	查询软件包信息		rpm -qi firefox
+	rpm -qf [文件全路径]	查询文件所属软件包
+	例如	rpm -qf /etc/passwd	rpm -qf /root/install.log
+4、卸载软件包		rpm -e [软件包名]		rpm -e firefox
+	报错时，可以增加参数(--nodeps)强制删除		
+	rpm -e --nodeps foo
+5、安装rpm包		rpm -ivh [软件包全路径名]
+	-i	安装		-v	提示		-h	进度条
+6、yum基本指令	
+查询yum服务器是否有需要的软件	yum list | grep xxx
+安装指定yum包			yum install xxx

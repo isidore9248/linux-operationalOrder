@@ -1,0 +1,10 @@
+1、find [搜索范围] [选项]		查找
+	find / -name *.txt		在根目录下查找所有txt文件	
+	find /home/ -user cr7	在/home/下查找用户名为cr7的所						有文件	
+	find /opt/ -size +200M	在/opt/下查找所有符合指定大小的		单位k M G			文件，+大于 -小于  空格等于
+2、locate [搜索文件、目录]	查找该文件、目录的地址
+	使用前需要先执行updatedb
+3、which [指令]				查找该指令在哪个目录下
+4、grep[选项] 查找内容 源文件	
+	grep -n "yes" /home/hello.txt	显示/home/hello.txt下								有 ”yes“ 的行内容
+	cat /home/hello.txt | grep -n "yes"	效果同上
