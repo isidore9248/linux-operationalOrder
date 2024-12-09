@@ -1,42 +1,42 @@
-1��gccĬ�����ɶ�̬�⣬ʹ��-static���ɾ�̬��
+1、gcc默认生成动态库，使用-static生成静态库
     eg.
     gcc test.c -o test_share 
-        ��test.c����̬�����ɿ�ִ���ļ���������Ϊtest_share
+        将test.c按动态库编译成可执行文件，并命名为test_share
     gcc -static test.c -o test_static 
-        ��test.c����̬�����ɿ�ִ���ļ���������Ϊtest_static
+        将test.c按静态库编译成可执行文件，并命名为test_static
         
-2��linux�¾�̬������
-    ��lib��ͷ����.a��β eg. libtest.a
+2、linux下静态库名称
+    以lib开头，以.a结尾 eg. libtest.a
     
-3����̬��������ʹ�ù��̣� 
-    A.��cԴ�ļ����ɶ�Ӧ��.o�ļ�
+3、静态库生成与使用过程： 
+    A.将c源文件生成对应的.o文件
         gcc -c xxx.c -o xxx.o
-    B.ʹ�ô������ar��׼���õ�.o�ļ����Ϊ.a�ļ� libtest.a
-      ѡ� r������    c������     s����������
+    B.使用打包工具ar将准备好的.o文件打包为.a文件 libtest.a
+      选项： r：更新    c：创建     s：建立索引
         ar -rcs libtest.a xxx1.o xxx2.o xxx3.o
-    C.ʹ��gcc����   !!!��ѡ����ո�
-    ѡ�  I��ָ��ͷ�ļ�Ŀ¼����Ҫ��h�ļ���ͬ��̬���mian����һ����(./ָ��ǰĿ¼)
-            L��ָ�����ļ�Ŀ¼����̬��
-            l(СдL):ָ���������
-                    ȥ��ǰ��׺�����Ϊlibtest.a ������test
+    C.使用gcc编译   !!!和选项不留空格
+    选项：  I：指定头文件目录，需要的h文件，同静态库和mian程序一起打包(./指当前目录)
+            L：指定库文件目录，静态库
+            l(小写L):指定库的名字
+                    去掉前后缀，如库为libtest.a 则留下test
         gcc main.c -I./ -L./ -ltest -o main
             
-4��linux�¶�̬������
-    ��lib��ͷ����.so��β eg. libtest.so
+4、linux下动态库名称
+    以lib开头，以.so结尾 eg. libtest.so
 
-5����̬��������ʹ�ù��̣�
-    A.��cԴ�ļ�����Ŀ���ļ���Ҫ�ӱ���ѡ�� -fpic(�������ַ�޹صı������)
+5、动态库生成与使用过程：
+    A.将c源文件生成目标文件，要加编译选项 -fpic(创建与地址无关的编译程序)
         gcc -fpic -c xxx.c
-    B.���ɹ����⣬��ʱҪ��������ѡ��:-shared(ָ�����ɶ�̬���ӿ�)
+    B.生成共享库，此时要加链接器选项:-shared(指定生成动态链接库)
         gcc -shared xxx1.o xxx2.o xxx3.o -o libtest.so
-    C.ʹ��gcc����   ͬ��̬��
-    D.ʹϵͳ�ҵ���̬�⣺
-        a.��ʱ���ã�    ���뻷����������ϵͳ��������̬��
-            export LD_LIBRARY_PATH=$LD_LIBRARY_PATH: <��̬��ľ���·��(��Ҫ�ļ���)>
-        b.�������ã�    �޸� ~/.bashrc �ű� ����
-            export LD_LIBRARY_PATH=$LD_LIBRARY_PATH: <��̬��ľ���·��(��Ҫ�ļ���)>
-        c.�༭/etc/ld.so.conf�ļ�
-            1.������ļ�����Ŀ¼��·��
-            2.����sudo ldconfig -v����������ؽ�/etc/ld.so.cache�ļ�
+    C.使用gcc编译   同静态库
+    D.使系统找到动态库：
+        a.临时设置：    载入环境变量，让系统搜索到动态库
+            export LD_LIBRARY_PATH=$LD_LIBRARY_PATH: <动态库的绝对路径(不要文件名)>
+        b.永久设置：    修改 ~/.bashrc 脚本 添加
+            export LD_LIBRARY_PATH=$LD_LIBRARY_PATH: <动态库的绝对路径(不要文件名)>
+        c.编辑/etc/ld.so.conf文件
+            1.加入库文件所在目录的路径
+            2.运行sudo ldconfig -v，该命令会重建/etc/ld.so.cache文件
 
             
