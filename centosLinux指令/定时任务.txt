@@ -53,3 +53,8 @@ f、编辑crontab，每隔一分钟执行该脚本
 8、atq 	查看系统中没有执行的工作任务
 9、atrm [编号]		删除已经设置的任务
 		atrm 4 //表示将 job 队列，编号为4的job 删除
+10、开机自动执行脚本 changeusr.sh （位于~/下）
+	编辑~/.bashrc 
+	~/.changeusr.sh
+	刷新并同步文件
+	source ~/.bashrc
