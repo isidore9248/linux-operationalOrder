@@ -1,0 +1,1 @@
+cd /vsProjects/select-MultiPlatform/; g++ -o "/vsProjects/select-MultiPlatform/bin/x64/Debug/select-MultiPlatform.out" -Wl,--no-undefined -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack "/vsProjects/select-MultiPlatform/obj/x64/Debug/select_server_thread.o" "/vsProjects/select-MultiPlatform/obj/x64/Debug/server.o"

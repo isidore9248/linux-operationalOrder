@@ -1,0 +1,1 @@
+cd /vsProject/epoll/; g++ -o "/vsProject/epoll/bin/x64/Debug/epoll.out" -Wl,--no-undefined -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack /vsProject/epoll/obj/x64/Debug/epoll_main.o /vsProject/epoll/obj/x64/Debug/epoll_server.o

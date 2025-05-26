@@ -1,0 +1,26 @@
+﻿  正在验证源
+  正在将源远程复制到“192.168.225.131”
+  正在验证体系结构
+  正在验证体系结构
+  正在启动远程生成
+  正在编译源:
+  client.c
+F:\linux\linux_About\src_Linux\vsLinuxProject\MultiThreadingProcess\client.c(23,38): warning : conversion from ‘int’ to ‘uint16_t’ {aka ‘short unsigned int’} may change value [-Wconversion]
+F:\linux\linux_About\src_Linux\vsLinuxProject\MultiThreadingProcess\client.c(23,38): warning :    23 |         server_addr.sin_port = htons(server_port);
+F:\linux\linux_About\src_Linux\vsLinuxProject\MultiThreadingProcess\client.c(23,38): warning :       |                                      ^~~~~~~~~~~
+  client_main.c
+  server.c
+F:\linux\linux_About\src_Linux\vsLinuxProject\MultiThreadingProcess\server.c(28,38): warning : conversion from ‘int’ to ‘uint16_t’ {aka ‘short unsigned int’} may change value [-Wconversion]
+F:\linux\linux_About\src_Linux\vsLinuxProject\MultiThreadingProcess\server.c(28,38): warning :    28 |         server_addr.sin_port = htons(server_port);
+F:\linux\linux_About\src_Linux\vsLinuxProject\MultiThreadingProcess\server.c(28,38): warning :       |                                      ^~~~~~~~~~~
+F:\linux\linux_About\src_Linux\vsLinuxProject\MultiThreadingProcess\server.c(48,17): warning : implicit declaration of function ‘bzero’ [-Wimplicit-function-declaration]
+F:\linux\linux_About\src_Linux\vsLinuxProject\MultiThreadingProcess\server.c(48,17): warning :    48 |                 bzero(&client_info_list[i], sizeof(struct client_info));
+F:\linux\linux_About\src_Linux\vsLinuxProject\MultiThreadingProcess\server.c(48,17): warning :       |                 ^~~~~
+F:\linux\linux_About\src_Linux\vsLinuxProject\MultiThreadingProcess\server.c(131,32): warning : conversion from ‘ssize_t’ {aka ‘long int’} to ‘int’ may change value [-Wconversion]
+F:\linux\linux_About\src_Linux\vsLinuxProject\MultiThreadingProcess\server.c(131,32): warning :   131 |                 int recv_ret = recv(p->client_sockfd, recv_buf, sizeof(recv_buf), 0);
+F:\linux\linux_About\src_Linux\vsLinuxProject\MultiThreadingProcess\server.c(131,32): warning :       |                                ^~~~
+  server_main.c
+  正在链接对象
+/usr/bin/ld : error : /vsProject/MultiThreadingProcess/obj/x64/Debug/server_main.o: in function `main':
+F:\linux\linux_About\src_Linux\vsLinuxProject\MultiThreadingProcess\server_main.c(8): error : multiple definition of `main'; /vsProject/MultiThreadingProcess/obj/x64/Debug/client_main.o:/vsProject/MultiThreadingProcess/client_main.c:9: first defined here
+collect2 : error : ld returned 1 exit status

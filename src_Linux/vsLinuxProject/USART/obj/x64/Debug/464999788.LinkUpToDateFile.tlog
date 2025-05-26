@@ -1,0 +1,1 @@
+cd /home/book/Desktop/vs_project/USART/; g++ -o "/home/book/Desktop/vs_project/USART/bin/x64/Debug/USART.out" -Wl,--no-undefined -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack -pthread /home/book/Desktop/vs_project/USART/obj/x64/Debug/usart.o

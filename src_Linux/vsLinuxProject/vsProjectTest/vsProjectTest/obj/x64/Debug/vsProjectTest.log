@@ -1,0 +1,9 @@
+﻿  正在验证源
+  正在将源远程复制到“192.168.225.131”
+  正在验证体系结构
+  正在验证体系结构
+  正在启动远程生成
+  正在编译源:
+  main.cpp
+  正在链接对象
+  vsProjectTest.vcxproj -> F:\linux\linux_About\src_Linux\vsLinuxProject\vsProjectTest\vsProjectTest\bin\x64\Debug\vsProjectTest.out

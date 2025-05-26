@@ -1,0 +1,45 @@
+﻿  正在验证源
+  正在将源远程复制到“192.168.225.131”
+  正在验证体系结构
+  正在验证体系结构
+  正在启动远程生成
+  正在编译源:
+  usart.c
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(44,33): warning : unsigned conversion from ‘int’ to ‘tcflag_t’ {aka ‘unsigned int’} changes value from ‘-513’ to ‘4294966783’ [-Wsign-conversion]
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(44,33): warning :    44 |                 newtio->c_cflag &= ~PARODD;
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(44,33): warning :       |                                 ^~
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(47,33): warning : unsigned conversion from ‘int’ to ‘tcflag_t’ {aka ‘unsigned int’} changes value from ‘-257’ to ‘4294967039’ [-Wsign-conversion]
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(47,33): warning :    47 |                 newtio->c_cflag &= ~PARENB;
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(47,33): warning :       |                                 ^~
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(52,33): warning : unsigned conversion from ‘int’ to ‘tcflag_t’ {aka ‘unsigned int’} changes value from ‘-257’ to ‘4294967039’ [-Wsign-conversion]
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(52,33): warning :    52 |                 newtio->c_cflag &= ~PARENB;
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(52,33): warning :       |                                 ^~
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(91,33): warning : unsigned conversion from ‘int’ to ‘tcflag_t’ {aka ‘unsigned int’} changes value from ‘-65’ to ‘4294967231’ [-Wsign-conversion]
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(91,33): warning :    91 |                 newtio->c_cflag &= ~CSTOPB;
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(91,33): warning :       |                                 ^~
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(98,33): warning : unsigned conversion from ‘int’ to ‘tcflag_t’ {aka ‘unsigned int’} changes value from ‘-65’ to ‘4294967231’ [-Wsign-conversion]
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(98,33): warning :    98 |                 newtio->c_cflag &= ~CSTOPB;
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(98,33): warning :       |                                 ^~
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(116,9): warning : implicit declaration of function ‘bzero’ [-Wimplicit-function-declaration]
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(116,9): warning :   116 |         bzero(&newtio, sizeof(newtio));
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(116,9): warning :       |         ^~~~~
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(118,24): warning : unsigned conversion from ‘int’ to ‘tcflag_t’ {aka ‘unsigned int’} changes value from ‘-49’ to ‘4294967247’ [-Wsign-conversion]
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(118,24): warning :   118 |         newtio.c_cflag &= ~CSIZE;
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(118,24): warning :       |                        ^~
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(119,24): warning : unsigned conversion from ‘int’ to ‘tcflag_t’ {aka ‘unsigned int’} changes value from ‘-28’ to ‘4294967268’ [-Wsign-conversion]
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(119,24): warning :   119 |         newtio.c_lflag &= ~(ICANON | ECHO | ECHOE | ISIG);  /*Input*/
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(119,24): warning :       |                        ^~
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(120,24): warning : unsigned conversion from ‘int’ to ‘tcflag_t’ {aka ‘unsigned int’} changes value from ‘-2’ to ‘4294967294’ [-Wsign-conversion]
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(120,24): warning :   120 |         newtio.c_oflag &= ~OPOST;   /*Output*/
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(120,24): warning :       |                        ^~
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(201,28): warning : conversion from ‘ssize_t’ {aka ‘long int’} to ‘int’ may change value [-Wconversion]
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(201,28): warning :   201 |                 int iRet = read((*(int*)arg), recv_buf, sizeof(recv_buf));
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(201,28): warning :       |                            ^~~~
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(189,17): warning : ‘send_buf’ is used uninitialized [-Wuninitialized]
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(189,17): warning :   189 |                 fgets(send_buf, BUFFER_SIZE, stdin);
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(189,17): warning :       |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(185,15): message : ‘send_buf’ was declared here
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(185,15): message :   185 |         char* send_buf;
+F:\linux\linux_About\src_Linux\vsLinuxProject\USART\usart.c(185,15): message :       |               ^~~~~~~~
+  正在链接对象
+  USART.vcxproj -> F:\linux\linux_About\src_Linux\vsLinuxProject\USART\bin\x64\Debug\USART.out

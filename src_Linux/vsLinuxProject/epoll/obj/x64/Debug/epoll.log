@@ -1,0 +1,25 @@
+﻿  正在验证源
+  正在将源远程复制到“192.168.225.131”
+  正在验证体系结构
+  正在验证体系结构
+  正在启动远程生成
+  正在编译源:
+  epoll_main.c
+  epoll_server.c
+F:\linux\linux_About\src_Linux\vsLinuxProject\epoll\epoll_server.c(33,57): warning : conversion to ‘size_t’ {aka ‘long unsigned int’} from ‘int’ may change the sign of the result [-Wsign-conversion]
+F:\linux\linux_About\src_Linux\vsLinuxProject\epoll\epoll_server.c(33,57): warning :    33 |                 int sent_len = send(target_fd, message, msg_len, 0);
+F:\linux\linux_About\src_Linux\vsLinuxProject\epoll\epoll_server.c(33,57): warning :       |                                                         ^~~~~~~
+F:\linux\linux_About\src_Linux\vsLinuxProject\epoll\epoll_server.c(33,32): warning : conversion from ‘ssize_t’ {aka ‘long int’} to ‘int’ may change value [-Wconversion]
+F:\linux\linux_About\src_Linux\vsLinuxProject\epoll\epoll_server.c(33,32): warning :    33 |                 int sent_len = send(target_fd, message, msg_len, 0);
+F:\linux\linux_About\src_Linux\vsLinuxProject\epoll\epoll_server.c(33,32): warning :       |                                ^~~~
+F:\linux\linux_About\src_Linux\vsLinuxProject\epoll\epoll_server.c(85,37): warning : conversion from ‘int’ to ‘uint16_t’ {aka ‘short unsigned int’} may change value [-Wconversion]
+F:\linux\linux_About\src_Linux\vsLinuxProject\epoll\epoll_server.c(85,37): warning :    85 |         serv_addr->sin_port = htons(port);
+F:\linux\linux_About\src_Linux\vsLinuxProject\epoll\epoll_server.c(85,37): warning :       |                                     ^~~~
+F:\linux\linux_About\src_Linux\vsLinuxProject\epoll\epoll_server.c(151,27): warning : conversion from ‘ssize_t’ {aka ‘long int’} to ‘int’ may change value [-Wconversion]
+F:\linux\linux_About\src_Linux\vsLinuxProject\epoll\epoll_server.c(151,27): warning :   151 |                 int len = recv(curfd, buf, sizeof(buf), 0);
+F:\linux\linux_About\src_Linux\vsLinuxProject\epoll\epoll_server.c(151,27): warning :       |                           ^~~~
+F:\linux\linux_About\src_Linux\vsLinuxProject\epoll\epoll_server.c(189,35): warning : conversion from ‘ssize_t’ {aka ‘long int’} to ‘int’ may change value [-Wconversion]
+F:\linux\linux_About\src_Linux\vsLinuxProject\epoll\epoll_server.c(189,35): warning :   189 |                         int len = recv(curfd, buf, sizeof(buf), 0);
+F:\linux\linux_About\src_Linux\vsLinuxProject\epoll\epoll_server.c(189,35): warning :       |                                   ^~~~
+  正在链接对象
+  epoll.vcxproj -> F:\linux\linux_About\src_Linux\vsLinuxProject\epoll\bin\x64\Debug\epoll.out

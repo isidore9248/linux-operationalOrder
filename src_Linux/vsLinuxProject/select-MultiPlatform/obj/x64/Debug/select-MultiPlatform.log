@@ -1,0 +1,13 @@
+﻿  正在验证源
+  正在将源远程复制到“192.168.225.131”
+  正在验证体系结构
+  正在验证体系结构
+  正在启动远程生成
+  正在编译源:
+  select_server_thread.c
+F:\linux\linux_About\src_Linux\vsLinuxProject\select-MultiPlatform\select_server_thread.c(118,19): warning : conversion from ‘ssize_t’ {aka ‘long int’} to ‘int’ may change value [-Wconversion]
+F:\linux\linux_About\src_Linux\vsLinuxProject\select-MultiPlatform\select_server_thread.c(118,19): warning :   118 |         int len = read(communicate_arg->client_sockfd, buf, sizeof(buf));
+F:\linux\linux_About\src_Linux\vsLinuxProject\select-MultiPlatform\select_server_thread.c(118,19): warning :       |                   ^~~~
+  server.c
+  正在链接对象
+  select-MultiPlatform.vcxproj -> F:\linux\linux_About\src_Linux\vsLinuxProject\select-MultiPlatform\bin\x64\Debug\select-MultiPlatform.out
