@@ -1,0 +1,18 @@
+1、
+    /dev/tty0：     前台终端（随时可以改变，可以是tty3、tty4...）
+    /dev/tty3-x：   其他实际打开终端终端
+    /dev/tty：      程序默认打开的终端，不会更改
+
+2、
+    console：权限更高的终端，一般用于显示系统信息
+
+    console=ttyS0时:/dev/console就是ttyS0
+    console=tty时:/dev/console就是前台程序的虚拟终端
+    console=tty0时:/dev/console就是前台程序的虚拟终端
+    console=ttyN时:/dev/console就是/dev/ttyN
+    console有多个取值时，使用最后一个取值来判断
+
+3、
+    dev/tty0：      虚拟终端
+    dev/ttyS0：     串口
+    dev/ttyUSB0：   USB串口

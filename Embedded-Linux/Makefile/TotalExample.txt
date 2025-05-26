@@ -1,0 +1,7 @@
+1、在顶层目录下的Makefile文件内添加本目录下需要编译的文件，需要添加的目录
+2、若要编写顶层目录下子目录里面的文件，则修改该子目录下的Makefile文件
+	obj-y += xxx.o
+3、设置顶层目录Makefile的交叉编译工具，CROSS_COMPILE
+	MP157Pro开发板编译工具：arm-buildroot-linux-gnueabihf-gcc 
+4、设置可执行程序名称，TARGET
+5、make编译，make clean清除 , make distclean彻底清除

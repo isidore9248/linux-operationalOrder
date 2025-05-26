@@ -1,0 +1,28 @@
+objs = a.o b.o c.o 
+
+dep_files := $(patsubst %, .%.txt, $(objs))
+#将objs中所有(.o)文件替换为.txt文件
+dep_files := $(wildcard $(dep_files))
+#查找当前目录下真实存在的文件
+
+test : $(objs)
+	gcc -o test $^
+#将用所有依赖编译为文件test
+
+#如果dep_files不为空就包含进去
+ifneq ($(dep_files), )
+include $(dep_files)
+endif
+
+CFLAGS = -Werror -Iinclude 	#gcc编译选项，将所有warning看作error
+
+%.o : %.c
+	@gcc $(CFLAGS) -c -o $@ $< -MD -MF .$@.txt
+
+clean :
+	@rm *.o test
+
+distclean :
+	@rm  $(dep_files)
+
+.PHONY : clean

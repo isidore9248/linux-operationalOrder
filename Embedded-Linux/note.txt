@@ -1,0 +1,9 @@
+1、编码格式
+	指定源代码文件的字符编码
+-finput-charset=GB2312 
+-finput-charset=UTF-8 
+	指定编译器生成的目标文件和执行文件的字符编码。这影响到编译器在编译时如何处理字符串常量等内容。
+-fexec-charset=GB2312 
+-fexec-charset=UTF-8 
+
+2、

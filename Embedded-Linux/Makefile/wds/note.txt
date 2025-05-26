@@ -1,0 +1,16 @@
+1、上层目录Makefile修改
+	#修改此处（包含文件/目录）
+	obj-y += main.o
+	obj-y += sub.o
+	obj-y += a/
+
+2、子目录下（包含源文件（a）目录下）修改Makefile文件
+	obj-y += 添加新的源文件
+
+3、上层Makefile目录：
+	包含目录（手动添加的）
+	CFLAGS += -I $(shell pwd)/include
+	库目录
+	LDFLAGS := 
+	编译工具
+	CROSS_COMPILE = 
